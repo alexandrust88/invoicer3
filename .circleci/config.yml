@@ -8,7 +8,7 @@ jobs:
     executor: clair_scanner/default
     steps:
     - clair_scanner/scan:
-        image: alexandrust88/invoicer2
+        image: 'docker.io/alexandrust88/invoicer2:latest'
 
 workflows:
   test:
