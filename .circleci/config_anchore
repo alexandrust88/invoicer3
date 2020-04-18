@@ -1,1 +1,16 @@
+version: 2.1
 
+orbs:
+  clair_scanner: ovotech/clair-scanner@1
+
+jobs:
+  scan_images:
+    executor: clair_scanner/default
+    steps:
+    - clair_scanner/scan:
+        image: 'docker.io/alexandrust88/invoicer2:latest'
+
+workflows:
+  test:
+    jobs:
+      - scan_images
