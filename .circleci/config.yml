@@ -1,15 +1,19 @@
-orbs:
-  anchore: anchore/anchore-engine@1.6.8
 version: 2.1
+
+orbs:
+  clair_scanner: ovotech/clair-scanner@1
+
+jobs:
+  scan_images:
+    executor: clair_scanner/default
+    steps:
+    - clair_scanner/scan:
+        image: debian:stretch
+
 workflows:
-  scan_image:
+  test:
     jobs:
-      - anchore/image_scan:
-          image_name: 'docker.io/alexandrust88/invoicer2:latest'
-          private_registry: true
-          registry_name: docker.io
-          registry_pass: $DOCKER_PASS
-          registry_user: $DOCKER_USER
+      - scan_images
 
 #version: 2.0
 # jobs:
