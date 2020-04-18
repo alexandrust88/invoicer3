@@ -1,19 +1,15 @@
-version: 2.1 
 orbs:
   anchore: anchore/anchore-engine@1.6.8
-  #anchore-engine: anchore/anchore-engine@1.6.8 gives error
+version: 2.1
 workflows:
   scan_image:
     jobs:
       - anchore/image_scan:
-          image_name: alexandrust88/invoicer2:latest
-          timeout: '300'
-          private_registry: True
+          image_name: 'docker.io/alexandrust88/invoicer2:latest'
+          private_registry: true
           registry_name: docker.io
-          #docker_layer_caching: false
-          registry_user: "${DOCKER_USER}"
-          registry_pass: "${DOCKER_PASS}"
-
+          registry_pass: $DOCKER_PASS
+          registry_user: $DOCKER_USER
 
 #version: 2.0
 # jobs:
