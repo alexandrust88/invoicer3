@@ -1,6 +1,7 @@
 version: 2.1 
 orbs:
-  anchore-engine: anchore/anchore-engine@1.6.8
+  anchore: anchore/anchore-engine@1.6.8
+  #anchore-engine: anchore/anchore-engine@1.6.8 gives error
 workflows:
   scan_image:
     jobs:
