@@ -10,7 +10,7 @@ workflows:
           timeout: '300'
           private_registry: True
           registry_name: docker.io
-          docker_layer_caching: False
+          #docker_layer_caching: false
           registry_user: "${DOCKER_USER}"
           registry_pass: "${DOCKER_PASS}"
 
